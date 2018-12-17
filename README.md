@@ -6,6 +6,12 @@ Installation of Docker on Ubuntu 18.04 and Use Docker
 <details>
 <summary>Prerequisites</summary>
 One Ubuntu 18.04 server set up with a non-root user with sudo privileges and a basic firewall configuration
+  <br>
+  <b>Install Required Packages</b>
+  <br>
+  Before installing Docker, you must make sure Ubuntu is ready!
+  <br>
+  $ sudo apt update
 </details>
 <br>
 
