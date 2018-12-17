@@ -157,11 +157,31 @@ $ sudo service docker stop
 <br>
 $ sudo service docker start
 <br>
+
+<b>Uninstall old versions</b>
+<br>
+Older versions of Docker were called docker or docker-engine. If these are installed, uninstall them:
+<br>
+$ sudo apt-get remove docker docker-engine docker.io
+
+<b>Uninstall Docker CE</b>
+<br>
+Uninstall the Docker CE package:
+<br>
+$ sudo apt-get purge docker-ce
+<br>
+
+Images, containers, volumes, or customized configuration files on your host are not automatically removed. To delete all images, containers, and volumes:
+<br>
+$ sudo rm -rf /var/lib/docker
+<br>
+<b>Note:</b> You must delete any edited configuration files manually.
 </details>
 
 # Important Resources
 [How to install Docker on Ubuntu 16.04 and 18.04](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-16-04/)<br>
 [Docker installation video](https://www.youtube.com/watch?v=hY34PpllKf4)<br>
+[Get Docker CE for Ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/)<br>
 [Docker Cheatsheet](https://github.com/wsargent/docker-cheat-sheet)<br>
 [Provision and Manage Remote Docker Hosts with Docker Machine on Ubuntu 18.04](https://www.digitalocean.com/community/tutorials/how-to-provision-and-manage-remote-docker-hosts-with-docker-machine-on-ubuntu-18-04/)<br>
 
