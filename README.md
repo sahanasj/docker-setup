@@ -142,9 +142,9 @@ The script will crawl Docker Hub and return a listing of all images whose name m
 </details>
 
 <details>
-<summary>Quick Docker cheatsheet to start and stop docker services</summary>
+<summary>Quick Docker cheatsheet</summary>
 
-<b>Using Systemctl:</b>
+<b>Using Systemctl: to start and stop docker services</b>
 
 $ sudo systemctl status docker
 <br>
@@ -256,6 +256,120 @@ $ docker login
   <br>
   $ docker run username/repository:tag
   <br>
+   
+<h5> Services and Stacks Commands </h5>
+<b>List stacks or apps</b>
+<br>
+$ docker stack ls 
+<br>
+<b>Run the specified Compose file</b>
+<br>
+$ docker stack deploy -c <composefile> <appname>
+<br>
+<b>List running services associated with an app</b>
+<br>
+$ docker service ls 
+<br>
+<b>List tasks associated with an app</b>
+<br>
+$ docker service ps <service>
+<br>
+<b>Inspect task or container</b>
+<br>
+$ docker inspect <task or container>
+<br>
+<b>List container IDs</b>
+<br>
+$ docker container ls -q 
+<br>
+<b>Tear down an application</b>
+<br>
+$ docker stack rm <appname>
+<br>
+<b>Take down a single node swarm from the manager</b>
+<br>
+$ docker swarm leave --force
+<br>
+  
+<h5> Docker Swarms commands </h5>
+
+<b>Create a VM (Mac, Win7, Linux)</b>
+<br>
+$ docker-machine create --driver virtualbox myvm1
+<br>
+<b>Create a VM - Win10</b>
+<br>
+$ docker-machine create -d hyperv --hyperv-virtual-switch "myswitch" myvm1
+<br>
+<b>View basic information about your node</b>
+<br>
+$ docker-machine env myvm1  
+<br>
+<b>List the nodes in your swarm</b>
+<br>
+$ docker-machine ssh myvm1 "docker node ls"
+<br>
+<b>Inspect a node</b>
+<br>
+$ docker-machine ssh myvm1 "docker node inspect <node ID>"
+<br>
+<b>View join token</b>
+<br>
+$ docker-machine ssh myvm1 "docker swarm join-token -q worker"
+<br>
+<b>Open an SSH session with the VM; type "exit" to end</b>
+<br>
+$ docker-machine ssh myvm1
+<br>
+<b>View nodes in swarm (while logged on to manager)</b>
+<br>
+$ docker node ls
+<br>
+<b>Make the worker leave the swarm</b>
+<br>
+$ docker-machine ssh myvm2 "docker swarm leave"
+<br>
+<b>Make master leave, kill swarm</b>
+<br>
+$ docker-machine ssh myvm1 "docker swarm leave -f"
+<br>
+<b>list VMs, asterisk shows which VM this shell is talking to</b>
+<br>
+$ docker-machine ls
+<br>
+<b>Start a VM that is currently not running</b>
+<br>
+$ docker-machine start myvm1
+<br>
+<b>show environment variables and command for myvm1</b>
+<br>
+$ docker-machine env myvm1
+<br>
+<b>Deploy an app; command shell must be set to talk to manager (myvm1), uses local Compose file</b>
+<br>
+$ docker stack deploy -c <file> <app>
+<br>
+<b>Copy file to node's home dir (only required if you use ssh to connect to manager and deploy the app)</b>
+<br>
+$ docker-machine scp docker-compose.yml myvm1:~
+<br>
+<b>Deploy an app using ssh (you must have first copied the Compose file to myvm1)</b>
+<br>
+$ docker-machine ssh myvm1 "docker stack deploy -c <file> <app>"
+<br>
+<b>Disconnect shell from VMs, use native docker</b>
+<br>
+$ eval $(docker-machine env -u)
+<br>
+<b>Stop all running VMs</b>
+<br>
+$ docker-machine stop $(docker-machine ls -q)
+<br>
+<b>Delete all VMs and their disk images</b>
+<br>
+$ docker-machine rm $(docker-machine ls -q)
+<br>
+
 
 </details>
 
