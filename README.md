@@ -379,5 +379,5 @@ $ docker-machine rm $(docker-machine ls -q)
 [Get Docker CE for Ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/)<br>
 [Docker Cheatsheet](https://github.com/wsargent/docker-cheat-sheet)<br>
 [Provision and Manage Remote Docker Hosts with Docker Machine on Ubuntu 18.04](https://www.digitalocean.com/community/tutorials/how-to-provision-and-manage-remote-docker-hosts-with-docker-machine-on-ubuntu-18-04/)<br>
-
+[Get Started with Docker](https://docs.docker.com/get-started/)<br>
 
