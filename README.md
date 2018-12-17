@@ -182,6 +182,81 @@ Images, containers, volumes, or customized configuration files on your host are 
 $ sudo rm -rf /var/lib/docker
 <br>
 <b>Note:</b> You must delete any edited configuration files manually.
+
+<b>List Docker CLI commands</b>
+<br>
+$ docker
+<br>
+$ docker container --help
+
+<b> Display Docker version and info</b>
+<br>
+$ docker --version
+<br>
+$ docker version
+<br>
+$ docker info
+
+<b>Execute Docker image</b>
+<br>
+$ docker run hello-world
+
+<b>List Docker images</b>
+<br>
+$ docker image ls
+
+<b>List Docker containers (running, all, all in quiet mode)</b>
+<br>
+$ docker container ls
+<br>
+$ docker container ls --all
+<br>
+$ docker container ls -aq
+<br>
+$ docker container ls -a
+<br>
+<br>
+<b>Gracefully stop the specified container</b>
+<br>
+$ docker container stop <hash> 
+<br>
+<b>Force shutdown of the specified container</b>
+<br>
+$ docker container kill <hash> 
+<br>
+<b>Remove specified container</b>
+<br>
+$ docker container rm <hash>
+  <br>
+<b>Remove all containers</b>
+<br>
+$ docker container ls -a -q
+<br>
+<b>Remove specified image</b>
+<br>
+$ docker image rm <image id>
+<br>
+<b>Remove all images</b>
+<br>
+$ docker image ls -a -q
+<br>
+<b>Log in to CLI session using your Docker credentials</b>
+<br>
+$ docker login
+<br>
+ <b>Tag <image> for upload to registry</b>
+  <br>
+  $ docker tag <image> username/repository:tag
+  <br>
+  <b>Upload tagged image to registry</b>
+  <br>
+  $ docker push username/repository:tag
+  <br>
+  <b>Run image from a registry</b>
+  <br>
+  $ docker run username/repository:tag
+  <br>
+
 </details>
 
 # Important Resources
