@@ -1,4 +1,4 @@
-# Docker concepts
+# DOCKER concepts
 Docker is a platform for developers and sysadmins to develop, deploy, and run applications with containers. The use of Linux containers to deploy applications is called containerization.
 
 A container is a runtime instance of an image. With DOCKER, you can treat containers like extremely lightweight, modular virtual machines. And you get flexibility with those containers—you can create, deploy, copy, and move them from environment to environment, which helps optimize your apps for the cloud.
@@ -65,12 +65,10 @@ List of all Docker Images, Application etc..:
 <br>
 </details>
 
-# docker-setup
-
-Installation of Docker on Ubuntu 18.04 and Use Docker
-
-# Getting Started
+# Getting Started with Docker-setup
 <details>
+ Installation of Docker on Ubuntu 18.04 and Use Docker<br>
+<br>
 <summary>Prerequisites</summary>
 One Ubuntu 18.04 server set up with a non-root user with sudo privileges and a basic firewall configuration
   <br>
