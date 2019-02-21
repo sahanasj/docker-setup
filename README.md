@@ -1,3 +1,55 @@
+# Docker concepts
+Docker is a platform for developers and sysadmins to develop, deploy, and run applications with containers. The use of Linux containers to deploy applications is called containerization.
+
+A container is a runtime instance of an image. With DOCKER, you can treat containers like extremely lightweight, modular virtual machines. And you get flexibility with those containers—you can create, deploy, copy, and move them from environment to environment, which helps optimize your apps for the cloud.
+(A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another.)
+
+Containerization is increasingly popular because containers are:
+
+* Flexible: Even the most complex applications can be containerized. <br>
+* Lightweight: Containers leverage and share the host kernel. <br>
+* Interchangeable: You can deploy updates and upgrades on-the-fly. <br>
+* Portable: You can build locally, deploy to the cloud, and run anywhere. <br>
+* Scalable: You can increase and automatically distribute container replicas. <br>
+* Stackable: You can stack services vertically and on-the-fly.<br>
+
+<b> How does Docker work? </b><br>
+The Docker technology uses the Linux kernel and features of the kernel, like Cgroups and namespaces, to segregate processes so they can run independently.
+
+1.	**Docker Machine** - Create Docker hosts on your computer, on cloud providers, and inside your own data center
+2.	**Docker Compose** - A tool for defining and running multi-container Docker applications.
+3.	**Docker Swarm** - A native clustering solution for Docker
+4.	**Kubernetes** - Kubernetes is an open-source system for automating deployment, scaling, and management of containerized applications.
+
+# Getting started - Hands on Experience with Dockers (Cloud based Lab Environment to play with Dockers)
+<details>
+<summary>Usage</summary>
+  <br>
+https://labs.play-with-docker.com/
+  <br>
+
+<img src="https://github.com/sahanasj/docker-setup/blob/master/Docker-Installation-Images/docker-play.PNG" width="650">
+
+<img src="https://github.com/sahanasj/docker-setup/blob/master/Docker-Installation-Images/docker-play-2.PNG" width="650">
+
+<img src="https://github.com/sahanasj/docker-setup/blob/master/Docker-Installation-Images/docker-hub-3.PNG" width="650">
+
+** Docker Hub Account** – Hub is a repository with all the images with  applications, resources of Docker.
+It is just simple as like Git as such, Connect to Repo and pull the docker image and then launch Application.
+<br>https://hub.docker.com/</br>
+
+Login
+<img src="https://github.com/sahanasj/docker-setup/blob/master/Docker-Installation-Images/docker-hub.PNG" width="650">
+
+Click on “Explore”
+<img src="https://github.com/sahanasj/docker-setup/blob/master/Docker-Installation-Images/docker-hub-2.PNG" width="650">
+
+List of all Docker Images, Application etc..
+<img src="https://github.com/sahanasj/docker-setup/blob/master/Docker-Installation-Images/docker-hub-3.PNG" width="650">
+
+
+</details>
+
 # docker-setup
 
 Installation of Docker on Ubuntu 18.04 and Use Docker
