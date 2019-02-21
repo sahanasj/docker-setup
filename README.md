@@ -4,6 +4,9 @@ Docker is a platform for developers and sysadmins to develop, deploy, and run ap
 A container is a runtime instance of an image. With DOCKER, you can treat containers like extremely lightweight, modular virtual machines. And you get flexibility with those containers—you can create, deploy, copy, and move them from environment to environment, which helps optimize your apps for the cloud.
 (A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another.)
 
+<details>
+<summary>Docker Notes</summary>
+ <br>
 Containerization is increasingly popular because containers are:
 
 * Flexible: Even the most complex applications can be containerized. <br>
@@ -27,6 +30,7 @@ The Docker technology uses the Linux kernel and features of the kernel, like Cgr
 * A virtual machine (VM) runs a full-blown “guest” operating system with virtual access to host resources through a hypervisor.
 
  <img src="https://github.com/sahanasj/docker-setup/blob/master/Docker-Installation-Images/containers-vs-vms.PNG" width="650">
+</details>
 
 # Getting started - Hands on Experience with Dockers (Cloud based Lab Environment to play with Dockers)
 <details>
