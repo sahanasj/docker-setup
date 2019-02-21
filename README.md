@@ -21,6 +21,13 @@ The Docker technology uses the Linux kernel and features of the kernel, like Cgr
 3.	**Docker Swarm** - A native clustering solution for Docker
 4.	**Kubernetes** - Kubernetes is an open-source system for automating deployment, scaling, and management of containerized applications.
 
+<b>Containers and virtual machines</b>
+<br>
+* A container runs natively on Linux and shares the kernel of the host machine with other containers. It runs a discrete process, taking no more memory than any other executable, making it lightweight.
+* A virtual machine (VM) runs a full-blown “guest” operating system with virtual access to host resources through a hypervisor.
+
+ <img src="https://github.com/sahanasj/docker-setup/blob/master/Docker-Installation-Images/containers-vs-vms.PNG" width="650">
+
 # Getting started - Hands on Experience with Dockers (Cloud based Lab Environment to play with Dockers)
 <details>
 <summary>Usage</summary>
@@ -34,20 +41,24 @@ https://labs.play-with-docker.com/
 
 <img src="https://github.com/sahanasj/docker-setup/blob/master/Docker-Installation-Images/docker-hub-3.PNG" width="650">
 
-** Docker Hub Account** – Hub is a repository with all the images with  applications, resources of Docker.
+<br>
+
+* Docker Hub Account * – Hub is a repository with all the images with  applications, resources of Docker.
 It is just simple as like Git as such, Connect to Repo and pull the docker image and then launch Application.
-<br>https://hub.docker.com/</br>
+<br>https://hub.docker.com/<br>
 
-Login
+Login:
+<br>
 <img src="https://github.com/sahanasj/docker-setup/blob/master/Docker-Installation-Images/docker-hub.PNG" width="650">
-
-Click on “Explore”
+<br>
+Click on “Explore”:
+<br>
 <img src="https://github.com/sahanasj/docker-setup/blob/master/Docker-Installation-Images/docker-hub-2.PNG" width="650">
-
-List of all Docker Images, Application etc..
+<br>
+List of all Docker Images, Application etc..:
+<br>
 <img src="https://github.com/sahanasj/docker-setup/blob/master/Docker-Installation-Images/docker-hub-3.PNG" width="650">
-
-
+<br>
 </details>
 
 # docker-setup
@@ -190,9 +201,58 @@ $	docker search ubuntu
 <img src="https://github.com/sahanasj/docker-setup/blob/master/Docker-Installation-Images/5.PNG" width="950">
 
 The script will crawl Docker Hub and return a listing of all images whose name matches the search string. In this case, the output will be similar to this:
+</details>
+<br>
 
+<details>
+<summary>Install Docker Compose</summary>
+Docker Compose relies on Docker Engine for any meaningful work, so make sure you have Docker Engine installed either locally or remote, depending on your setup.
+  
+ # Install Compose on Linux systems (using Curl)
+ 
+ 1. Run this command to download the latest version of Docker Compose: <br>
+ $ sudo curl -L "https://github.com/docker/compose/releases/download/1.23.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+ 
+<b>Note:</b> check the Compose repository release page on GitHub for latest versions.
+ https://github.com/docker/compose/releases
+ 
+ 2. Apply executable permissions to the binary:  <br>
+ $ sudo chmod +x /usr/local/bin/docker-compose
+ 
+ 3. Test the installation.  <br>
+ $ docker-compose --version
+ 
+ Output:
+ 
+ <img src="https://github.com/sahanasj/docker-setup/blob/master/Docker-Installation-Images/docker-compose.PNG" width="1050"> 
+ 
+ 4. To bring up both the container, run
+ $ docker-compose up
+ 
+ Note: When run at first time, It takes some time to finish the installation with all dependencies. <br>
+ To run docker-compose in detached mode, use -d option. However you may want to use non-detached mode to see output messages. <br>
+ To stop all containers started in docker-compose.yml, press CTRL+C if it is running in foreground, or you can run
+ 
+ To stop all containers started in docker-compose.yml, press CTRL+C if it is running in foreground, or you can run
+ $ docker-compose down
+ 
+ Note: Usefull command to see container we have just created "$ docker container ls --all"
+ 
+ <img src="https://github.com/sahanasj/docker-setup/blob/master/Docker-Installation-Images/docker-container-list.PNG" width="950">
+ 
+ # Uninstallation
+ 
+ To uninstall Docker Compose if you installed using curl: <br>
+ $ sudo rm /usr/local/bin/docker-compose
+ <br>
+  
+ To uninstall Docker Compose if you installed using pip:  <br>
+ $ pip uninstall docker-compose
+  <br>
+ 
 </details>
 
+<br>
 <details>
 <summary>Quick Docker cheatsheet</summary>
 
@@ -422,14 +482,38 @@ $ docker-machine stop $(docker-machine ls -q)
 $ docker-machine rm $(docker-machine ls -q)
 <br>
 
-
 </details>
 
 # Important Resources
+[What is DOCKER](https://www.redhat.com/en/topics/containers/what-is-docker)<br>
+https://www.infoworld.com/article/3204171/docker/what-is-docker-docker-containers-explained.html <br>
 [How to install Docker on Ubuntu 16.04 and 18.04](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-16-04/)<br>
 [Docker installation video](https://www.youtube.com/watch?v=hY34PpllKf4)<br>
 [Get Docker CE for Ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/)<br>
 [Docker Cheatsheet](https://github.com/wsargent/docker-cheat-sheet)<br>
 [Provision and Manage Remote Docker Hosts with Docker Machine on Ubuntu 18.04](https://www.digitalocean.com/community/tutorials/how-to-provision-and-manage-remote-docker-hosts-with-docker-machine-on-ubuntu-18-04/)<br>
 [Get Started with Docker](https://docs.docker.com/get-started/)<br>
+[Docker Container](https://www.docker.com/resources/what-container/)<br>
+https://www.docker.com/resources/what-container <br>
+[Docker Compose](https://docs.docker.com/compose/)<br>
+[Quickstart: Compose and Django](https://docs.docker.com/compose/django/)<br>
+[Install Docker Compose](https://docs.docker.com/compose/install/)<br>
+[Test Docker installation](https://docs.docker.com/get-started/)<br>
+[Continuous Integration and Continuous Deployment (CI/CD)](https://www.docker.com/solutions/cicd)<br>
+https://www.docker.com/why-docker
+[Understanding Docker Build Args, Environment Variables and Docker Compose Variables](https://vsupalov.com/docker-env-vars/)<br>
+[Docker ARG, ENV and .env - a Complete Guide](https://vsupalov.com/docker-arg-env-variable-guide/) <br>
+[IMP- Docker project for Python, Django and Apache2 setup](https://github.com/ramkulkarni1/django-apache2-docker) <br>
+[Docker Notes](http://ramkulkarni.com/blog/docker-notes/) <br>
+
+# Notes:
+* The docker-compose.yml - file describes the services that make your app.
+* The Dockerfile - Docker can build images automatically by reading the instructions from a Dockerfile. It is a text document that contains all the commands a user could call on the command line to assemble an image. 
+Best Practices: https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/
+* The docker build - This command builds an image from a Dockerfile and a context.
+https://docs.docker.com/engine/reference/builder/
+
+
+
+
 
