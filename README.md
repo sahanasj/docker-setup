@@ -352,6 +352,139 @@ $ docker image rm <image id>
 <br>
 $ docker image ls -a -q
 <br>
+ <b>Create a container from ubuntu image</b> <br>
+ $ docker run -name my-ubuntu -it ubuntu bash <br>
+ The above command will create a docker container from base ubuntu image, name it my-ubuntu, run bash command (open bash shell) and keep standard input open (-i) and text input console open (-t, together -it). It will open a bash shell in the container, where you can execute any command.
+ <br>
+ 
+ <b>Create an image from Dockerfile</b> <br>
+ $ docker build -t image_name . <br>
+ <br>
+ 
+ $ docker ps -a <br>
+ ps command shows lot of information. However you can filter and format the output. Format should be a Go template string. For example to see only names of  container use following command –
+ <br>
+ $ docker ps --format "{{.Names}}"
+ <br>
+ 
+ <b>Start Container</b>
+ <br>
+ $ docker start <container>
+ <br>
+ $ docker start -i <container>
+ <br>
+ use stop command to stop the container
+  $ docker stop -i <container>
+ <br>
+ To remove a container , use rm command (you can specify multiple containers names) –
+ <br>
+ $ docker rm <container-1> <container-2>
+ <br>
+ If you want to remove running container, use -f option
+ <br>
+ $ docker rm -f <container>
+ <br>
+create a container in detached mode.
+ <br>
+ $ docker run -d -it --name <container> ubuntu
+ <br>
+ -d option runs docker container in background (detached mode). You will immediately return to command prompt after executing the above command.
+ <br>
+ To attach to the  the above container and the process that started it (in this case /bin/bash) –
+ <br>
+ $ docker attach <container>
+ <br>
+ This will allow you to execute commands in bash shell that was started in the container when container was run.
+<br>
+
+If you do not want to terminate the container upon existing the bash shell, you can use exec command.
+<br>
+$ docker exec -it <container> bash
+<br>
+This will open a new bash shell. Exiting that shell will not terminate the container because it was not the command that started the container.
+<br>
+<b>Deleting Image</b>
+To remove images, use rmi command. Note that there should be no container based on the images you want to delete. If there are containers using images to be deleted, then remove those containers first using rm command mentioned above.
+<br>
+$ docker rmi my-image1 my-image2
+<br>
+Instead of names you can also use image ids.
+<br>
+<b>Delete all Containers</b>
+
+Following command will delete ALL containers, so be careful
+<br>
+$ docker rm $(docker ps -a -q)
+<br>
+-q option tells ps command to return only ids, which are then fed to rm command.
+<br>
+
+Here is an example of using filters to remove containers (this example removes all containers starting with my-ubuntu)
+<br>
+$ docker rm $(docker ps --filter name=my-ubuntu* -q)
+<br>
+
+<b>Delete all Images</b>
+Following command deletes all images, so again be careful –
+<br>
+$ docker rmi $(docker images -q)
+<br>
+
+<b>To delete by filtering on image name –</b>
+<br>
+$ docker rmi ($docker images *my-ubuntu*)
+<br>
+
+<b>Mapping folder from host to container</b>
+To share folder from the host to a container, use the same -v option, but specify <host-folder-name>:<path-in-container> argument. 
+<br>
+$ docker run --rm -it -v ${PWD}:/src ubuntu
+<br>
+${PWD} tells docker to map present working directory.
+
+<br>
+<b>Using volumes for backup and restore</b>
+Backing up data from one container and restoring it in another.
+<br>
+$ docker inspect my-db
+<br>
+
+$ docker run --rm --volumes-from my-db -v ${pwd}/backup-data:/backup-data ubuntu tar cvf /backup-data/my-db-volume.tar /var/lib/mysql
+<br>
+We are using –rm because we want to create a temporary container. The container will be terminated after the command is finished.
+<br>
+
+<b>To restore the data –</b>
+<br>
+$ docker run --rm --volumes-from my-new-db -v $(pwd)/data-backup:/backup-data ubuntu bash -c "cd / && tar xvf /backup-data/my-db-data.tar"
+<br>
+Here we are restoring the data into newly created my-new-db container (created with mysql base image). We are using volumes from the new db container, so /var/lib/mysql folder is available to the temporary container. 
+
+<br>
+
+<b>Creating image from container</b>
+<br>
+create a container from some base image
+<br>
+$ docker export -o /my-images/container1-image.tar container1
+<br>
+Specify output file path using -o option. The last argument is name of the container from which you want to create an image.
+<br>
+To create image from the exported file, use import command –
+<br>
+$ docker import /my-images/container1-image.tar container1-image
+<br>
+The above command will create image named container1-image from container1-image.tar file.
+<br>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 <b>Log in to CLI session using your Docker credentials</b>
 <br>
 $ docker login
