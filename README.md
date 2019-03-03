@@ -412,13 +412,25 @@ $ docker rmi my-image1 my-image2
 <br>
 Instead of names you can also use image ids.
 <br>
-<b>Delete all Containers</b>
+<p>Stop and remove all docker containers and images</p>
+<b>List all containers (only IDs)</b> <br>
+$docker ps -aq <br>
 
-Following command will delete ALL containers, so be careful
-<br>
+<b>Stop all running containers</b> <br>
+$ docker stop $(docker ps -aq) <br>
+
+<b>Remove all containers</b> <br>
+$docker rm $(docker ps -aq) <br>
+
+<b>Remove all images</b> <br>
+$ docker rmi $(docker images -q) <br>
+
+<b>Remove all containers</b>, so be careful <br>
 $ docker rm $(docker ps -a -q)
 <br>
 -q option tells ps command to return only ids, which are then fed to rm command.
+docker ps list containers <br>
+-a the option to list all containers, even stopped ones. Without this, it defaults to only listing running containers
 <br>
 
 Here is an example of using filters to remove containers (this example removes all containers starting with my-ubuntu)
@@ -640,6 +652,9 @@ https://www.docker.com/why-docker
 [Docker ARG, ENV and .env - a Complete Guide](https://vsupalov.com/docker-arg-env-variable-guide/) <br>
 [IMP- Docker project for Python, Django and Apache2 setup](https://github.com/ramkulkarni1/django-apache2-docker) <br>
 [Docker Notes](http://ramkulkarni.com/blog/docker-notes/) <br>
+[How to delete Docker containers from the command line](http://blog.baudson.de/blog/stop-and-remove-all-docker-containers-and-images) <br>
+https://medium.com/the-code-review/docker-rm-how-to-stop-and-delete-containers-via-the-command-line-6a8fc2cc3f39
+
 
 # Notes:
 * The docker-compose.yml - file describes the services that make your app.
