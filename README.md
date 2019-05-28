@@ -793,6 +793,24 @@ Best Practices: https://docs.docker.com/engine/userguide/eng-image/dockerfile_be
 https://docs.docker.com/engine/reference/builder/
 
 
+# Troubleshoot
+If incase, encounter any issues while installing docker on ubuntu 18.04, follow the below steps:
+
+$ sudo apt install apt-transport-https ca-certificates curl software-properties-common
+<br>
+
+$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+<br>
+
+$ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic test"
+<br>
+
+$ sudo apt update
+<br>
+
+$ sudo apt install docker-ce
+<br>
+Reference link - https://askubuntu.com/questions/1030179/package-docker-ce-has-no-installation-candidate-in-18-04
 
 
 
