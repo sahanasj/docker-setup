@@ -88,13 +88,18 @@ First, in order to ensure the downloads are valid, add the GPG key for the offic
   <br>
 
 $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-
 <br>
+
+To use add-apt-repository or apt-add-repository commands to add PPA
+<br>
+
+$ sudo apt-get install software-properties-common
+<br>
+
 Add the Docker repository to APT sources 
 <br>
 $ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 
-<br>
 <br>
 Next, update the package database with the Docker packages from the newly added repo:
 <br>
